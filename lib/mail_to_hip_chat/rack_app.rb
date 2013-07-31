@@ -32,6 +32,7 @@ module MailToHipChat
   
     def use_chute(chute)
       @chute_chain.push(chute)
+      puts "adding chain #{chute}"
     end
   
   private
