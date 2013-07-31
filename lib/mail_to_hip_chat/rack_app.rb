@@ -17,7 +17,7 @@ module MailToHipChat
   
     def call(rack_env)
       request = Rack::Request.new(rack_env)
-      return [400, {}, ['Bad Request.']] unless valid_request?(request)
+      #return [400, {}, ['Bad Request.']] unless valid_request?(request)
 
       if @chute_chain.accept(request.params)
         [200, {}, ['OK']]
