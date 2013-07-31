@@ -20,5 +20,21 @@ module MailToHipChat
       end
       
     end
+
+    class JenkinsEmail
+      include MessageChute
+      
+      def initialize(opts)
+        initialize_hipchat_opts(opts)
+      end
+      
+      def call(params)
+        #return false unless params["subject"] =~ /testing setup/i
+        message = Mustache.render("Message:<br />{{message}}", :message => params["plain"])
+        message_rooms("Testing", message)
+        true
+      end
+      
+    end
   end
 end
