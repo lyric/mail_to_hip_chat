@@ -31,7 +31,7 @@ module MailToHipChat
       def call(params)
         #return false unless params["subject"] =~ /testing setup/i
         message = Mustache.render("Message:<br />{{message}}", :message => params["plain"])
-        message_rooms("Testing", message)
+        message_rooms("Jenkins", message)
         true
       end
       
